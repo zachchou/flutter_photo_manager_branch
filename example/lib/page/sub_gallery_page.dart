@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'package:photo_manager_example/widget/gallery_item_widget.dart';
+import 'package:flutter_photo_manager_branch/flutter_photo_manager_branch.dart';
+
+class SubFolderPage extends StatefulWidget {
+  const SubFolderPage({
+    Key? key,
+    required this.pathList,
+    required this.title,
+  }) : super(key: key);
+
+  final List<AssetPathEntity> pathList;
+  final String title;
+
+  @override
+  _SubFolderPageState createState() => _SubFolderPageState();
+}
+
+class _SubFolderPageState extends State<SubFolderPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: ListView.builder(
+        itemBuilder: _buildItem,
+        itemCount: widget.pathList.length,
+      ),
+    );
+  }
+
+  Widget _buildItem(BuildContext context, int index) {
+    final item = widget.pathList[index];
+    return GalleryItemWidget(
+      path: item,
+      setState: setState,
+    );
+  }
+}
