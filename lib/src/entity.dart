@@ -20,6 +20,13 @@ class AssetPathEntity {
     return entity;
   }
 
+  /// sortWeights
+  ///
+  /// to use sort
+  ///
+  /// give int value
+  int sortWeights = 0;
+
   /// id
   ///
   /// in ios is localIdentifier
